@@ -1,6 +1,6 @@
 <?php
 /**
- * @pluginName epoint Opencart 3.x Payment Gateway
+ * @pluginName Epoint woocommerce payment gateway
  * @pluginUrl https://epoint.az/
  * @varion 1.0.0
  * @author Rauf ABBASZADE <rafo.abbas@gmail.com>

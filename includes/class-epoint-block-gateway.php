@@ -5,17 +5,17 @@ use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodTyp
 
 class Epoint_WooCommerce_Blocks extends AbstractPaymentMethodType
 {
-
 	protected $name = 'epoint_woocommerce_blocks_gateway';
+
 	private $gateways = [];
 
-	public function initialize()
-	{
+	public function initialize(): void
+    {
 		$this->gateways['epoint'] = 'Epoint_Checkout_For_WooCommerce_Gateway';
 	}
 
-	public function is_active()
-	{
+	public function is_active(): bool
+    {
 		$payment_methods = $this->get_payment_method_infos();
 
 		if (count($payment_methods) > 0) {
@@ -59,6 +59,7 @@ class Epoint_WooCommerce_Blocks extends AbstractPaymentMethodType
 	public function get_payment_method_infos()
 	{
 		$payment_gateways = WC_Payment_Gateways::instance();
+
 		$available_gateways = $payment_gateways->payment_gateways();
 
 

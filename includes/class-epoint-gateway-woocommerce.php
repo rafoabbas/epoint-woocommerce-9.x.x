@@ -17,14 +17,13 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
      */
     public function __construct()
     {
-        // Register plugin information
-
         $this->id = 'epoint';
         $this->method_title = 'Epoint Gateway';
         $this->has_fields = false;
         $this->hpos = $this->checkHpos();
 
         $this->init_form_fields();
+
         $this->init_settings();
 
         $this->title = $this->settings['title'];
@@ -55,12 +54,8 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
 
     }
 
-    /**
-     * Initialize Gateway Settings Form Fields.
-     */
     public function init_form_fields(): void
     {
-
         $this->form_fields = array(
             'enabled' => array(
                 'title' => __('Enable/Disable', 'epoint'),
@@ -352,7 +347,7 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
     // Add custom endpoint for callback
     public function epoint_callback()
     {
-        if (isset($_GET['order_id']) && $_SERVER['REQUEST_METHOD'] == 'GET') {
+        if (isset($_GET['order_id']) && $_SERVER['REQUEST_METHOD'] === 'GET') {
             $order_id = (int) $_GET['order_id'];
 
             $order = new WC_Order($order_id);
