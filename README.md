@@ -12,10 +12,10 @@ Information about [epoint.az](https://epoint.az) you can find on the website.
 * To use plugin in WooCommerce versions that more than v8 - Go to Pages - Checkout - Classic Mode
 
 ## Installation
-1. Download "epoint-woocommerce-9.x.x.zip" ZIP File
+1. Download "[epoint-woocommerce-9.x.x.zip](https://abbaszade.dev/epoint-woocommerce-9.x.x.zip)" ZIP File
 2. In the WP-Admin open "Plugins" - "Add New"
 3. Press "Upload Plugin" on the header
-4. Upload "epoint-woocommerce-9.x.x.zip" ZIP file to Wordpress
+4. Upload "[epoint-woocommerce-9.x.x.zip](https://abbaszade.dev/epoint-woocommerce-9.x.x.zip)" ZIP file to Wordpress
 
 ## Epoint adaptation
 1. After installation open "WooCommerce" - "Settings" - "Payments"
