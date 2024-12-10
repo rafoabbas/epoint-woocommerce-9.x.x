@@ -107,8 +107,6 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
     public function get_admin_settings()
     {
         return [
-            'url' => $this->settings['api_url'],
-            'terminal' => $this->settings['terminal'],
             'currency' => $this->settings['currency'],
             'public_key' => $this->settings['public_key'],
             'private_key' => $this->settings['private_key'],
