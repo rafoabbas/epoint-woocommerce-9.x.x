@@ -21,6 +21,7 @@ Information about [epoint.az](https://epoint.az) you can find on the website.
 1. After installation open "WooCommerce" - "Settings" - "Payments"
 2. Open "Epoint Gateway "
 3. Put your Public and Private Key in the text fields
+4. If the currency is selected as USD or EUR, add the exchange rate index for AZN.
 5. Enable Gateway
 6. Save Changes
 
