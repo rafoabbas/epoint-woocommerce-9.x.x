@@ -84,6 +84,22 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
                     'USD' => 'USD',
                     'EUR' => 'EUR')
             ),
+            'currency_usd_convert_azn' => array(
+                'title' => __('USD convert to AZN', 'epoint'),
+                'type' => 'text',
+                'class' => 'production-mode',
+                'description' => __('If you want to convert USD to AZN, you can set the rate here.'),
+                'default' => __('1.70', 'epoint'),
+                'placeholder' => __('1.70', 'epoint')
+            ),
+            'currency_eur_convert_azn' => array(
+                'title' => __('EUR convert to AZN', 'epoint'),
+                'type' => 'text',
+                'class' => 'production-mode',
+                'description' => __('If you want to convert EUR to AZN, you can set the rate here.'),
+                'default' => __('1.78', 'epoint'),
+                'placeholder' => __('1.78', 'epoint')
+            ),
             'public_key' => array(
                 'title' => __('Public Key', 'epoint'),
                 'type' => 'text',
@@ -110,7 +126,9 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
             'currency' => $this->settings['currency'],
             'public_key' => $this->settings['public_key'],
             'private_key' => $this->settings['private_key'],
-            'callback' => $this->callback
+            'callback' => $this->callback,
+            'currency_usd_convert_azn' => $this->settings['currency_usd_convert_azn'],
+            'currency_eur_convert_azn' => $this->settings['currency_eur_convert_azn'],
         ];
     }
 
@@ -183,6 +201,7 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
 
     public function create_order($order_id)
     {
+
         $admin_settings = $this->get_admin_settings();
 
         $order = new WC_Order($order_id);
@@ -193,9 +212,17 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
 
         $result['status'] = 0;
 
+        $total = (float) $order->total;
+
+        if ($admin_settings['currency'] === 'USD') {
+            $total = $total * (float) $admin_settings['currency_usd_convert_azn'];
+        } else if ($admin_settings['currency'] === 'EUR') {
+            $total = $total * (float) $admin_settings['currency_eur_convert_azn'];
+        }
+
         $response = $epoint->request('1/request', $epoint->payload([
             'public_key' => $admin_settings['public_key'],
-            'amount' => (float) $order->total,
+            'amount' => (float) $total,
             'currency' => $admin_settings['currency'],
             'language' => 'az',
             'order_id' => $order_id,
@@ -240,9 +267,18 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
 
         $result = array( 'status' => 0);
 
+        $total = (float) $order->total;
+
+        if ($admin_settings['currency'] === 'USD') {
+            $total = $total * (float) $admin_settings['currency_usd_convert_azn'];
+        } else if ($admin_settings['currency'] === 'EUR') {
+            $total = $total * (float) $admin_settings['currency_eur_convert_azn'];
+        }
+
+
         $response = $epoint->request('1/reverse', $epoint->payload([
             'public_key' => $admin_settings['public_key'],
-            'amount' => (float) $order->total,
+            'amount' => (float) $total,
             'currency' => $admin_settings['currency'],
             'language' => 'az',
             'transaction' => $orderId,
