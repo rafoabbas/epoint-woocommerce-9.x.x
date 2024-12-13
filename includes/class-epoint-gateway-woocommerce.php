@@ -270,7 +270,7 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
         return $result;
     }
 
-    public function get_order_information($epoint_order_id)
+    public function get_order_information($epoint_order_id, $order_id = null)
     {
         //Define woocommerce
         global $woocommerce;
@@ -280,15 +280,18 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
 
         $epoint = $this->registerEpoint($admin_settings);
 
-        if ($this->hpos) {
-            //Get order data by post meta
-            $order_data = $this->get_order_by_meta($epoint_order_id);
-        } else {
-            $order_data = $this->get_post_by_meta($epoint_order_id);
+        if (is_null($order_id) || empty($order_id)) {
+            if ($this->hpos) {
+                //Get order data by post meta
+                $order_data = $this->get_order_by_meta($epoint_order_id);
+            } else {
+                $order_data = $this->get_post_by_meta($epoint_order_id);
+            }
+
+            //Define order id
+            $order_id = $order_data->get_id();
         }
 
-        //Define order id
-        $order_id = $order_data->get_id();
 
         //Create object from Order class
         $order = new WC_Order($order_id);
@@ -352,7 +355,7 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
 
             $epoint_order_id = $order->get_meta('payment_order_id', true);
 
-            $this->get_order_information($epoint_order_id);
+            $this->get_order_information($epoint_order_id, $order_id);
 
             $return_url = $order->get_checkout_order_received_url();
 
