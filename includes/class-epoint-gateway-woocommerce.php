@@ -228,11 +228,17 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
             $total = $total * (float) $admin_settings['currency_eur_convert_azn'];
         }
 
+        $language = 'az';
+
+        if (in_array($admin_settings['language'], array('az', 'en', 'ru'))) {
+            $language = $admin_settings['language'];
+        }
+
         $response = $epoint->request('1/request', $epoint->payload([
             'public_key' => $admin_settings['public_key'],
             'amount' => (float) $total,
             'currency' => $admin_settings['currency'],
-            'language' => 'az',
+            'language' => $language,
             'order_id' => $order_id,
             'description' => 'Order #' . $order_id,
             "success_redirect_url" => $admin_settings['callback'] . "?order_id=" . $order_id,
