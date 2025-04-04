@@ -2,7 +2,7 @@
 /**
  * @pluginName Epoint woocommerce payment gateway
  * @pluginUrl https://epoint.az/
- * @varion 1.0.0
+ * @varion 1.1.0
  * @author Rauf ABBASZADE <rafo.abbas@gmail.com>
  * @authorURI: https://abbasazade.dev/
  */

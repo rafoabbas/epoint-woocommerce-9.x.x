@@ -116,7 +116,15 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
                 'default' => __('', 'epoint'),
                 'placeholder' => __('***********************', 'epoint')
             ),
-
+            'language' => array(
+                'title' => __('Select Language', 'epoint'),
+                'type' => 'select',
+                'description' => __('Select your site language.', 'epoint'),
+                'options' => array(
+                    'az' => 'az',
+                    'en' => 'en',
+                    'ru' => 'ru')
+            ),
         );
     }
 

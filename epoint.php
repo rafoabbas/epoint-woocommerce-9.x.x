@@ -4,7 +4,7 @@
 Plugin Name: Epoint WooCommerce Payment Gateway
 Plugin URI: https://epoint.az/
 Description: Epoint Payment Gateway for Woocommerce
-Version: 1.0.0
+Version: 1.1.0
 Author: Rauf Abbaszade <rafo.abbas@gmail.com>
 Author URI: https://abbaszade.dev/
 */
