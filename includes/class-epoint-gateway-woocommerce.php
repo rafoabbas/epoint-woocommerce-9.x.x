@@ -135,6 +135,7 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
             'public_key' => $this->settings['public_key'],
             'private_key' => $this->settings['private_key'],
             'callback' => $this->callback,
+            'language' => $this->settings['language'],
             'currency_usd_convert_azn' => $this->settings['currency_usd_convert_azn'],
             'currency_eur_convert_azn' => $this->settings['currency_eur_convert_azn'],
         ];
