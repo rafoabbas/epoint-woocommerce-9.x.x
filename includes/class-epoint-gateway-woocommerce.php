@@ -235,7 +235,7 @@ class WC_Gateway_Epoint extends WC_Payment_Gateway
             $language = $admin_settings['language'];
         }
 
-        $response = $epoint->request('1/request', $epoint->payload([
+        $response = $epoint->request('1/payment-request', $epoint->payload([
             'public_key' => $admin_settings['public_key'],
             'amount' => (float) $total,
             'currency' => $admin_settings['currency'],
