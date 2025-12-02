@@ -6,16 +6,16 @@ Epoint integration module version 1.0.0 for Wordpress WooCommerce
 Information about [epoint.az](https://epoint.az) you can find on the website.
 
 ## Requirements
-1. [epoint-woocommerce-9.x.x.zip](https://r2.abbaszade.dev/epoint-opencart-v3.0.x-main.zip)
+1. [epoint-woocommerce-9.x.x.zip](https://r2.abbaszade.dev/epoint-woocommerce-9.x.x-main.zip)
 2. Wordpress (Tested on v6.6.2)
 3. WooCommerce installed (Tested on v9.3.3)
 * To use plugin in WooCommerce versions that more than v8 - Go to Pages - Checkout - Classic Mode
 
 ## Installation
-1. Download "[epoint-woocommerce-9.x.x.zip](https://r2.abbaszade.dev/epoint-opencart-v3.0.x-main.zip)" ZIP File
+1. Download "[epoint-woocommerce-9.x.x.zip](https://r2.abbaszade.dev/epoint-woocommerce-9.x.x-main.zip)" ZIP File
 2. In the WP-Admin open "Plugins" - "Add New"
 3. Press "Upload Plugin" on the header
-4. Upload "[epoint-woocommerce-9.x.x.zip](https://r2.abbaszade.dev/epoint-opencart-v3.0.x-main.zip)" ZIP file to Wordpress
+4. Upload "[epoint-woocommerce-9.x.x.zip](https://r2.abbaszade.dev/epoint-woocommerce-9.x.x-main.zip)" ZIP file to Wordpress
 
 ## Epoint adaptation
 1. After installation open "WooCommerce" - "Settings" - "Payments"
